@@ -8,6 +8,7 @@ import {
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { portfolioConfig } from "@/lib/portfolioConfig";
 import { Analytics } from "@vercel/analytics/react";
+import CursorFollower from "@/components/CursorFollower";
 const fontSans = FontSans({
   weight: ["400", "500", "600"],
   display: "swap",
@@ -73,6 +74,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <CursorFollower />
           {/* <Header /> */}
           {children}
         </ThemeProvider>
