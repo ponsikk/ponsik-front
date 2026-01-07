@@ -11,7 +11,7 @@ function BioSection() {
     { icon: BriefcaseBusiness, title: "Available for Remote Work", type: "text" },
     { icon: MapPin, title: "Russia (Remote)", type: "text" },
     { icon: Mail, title: "ponsik123@gmail.com", type: "link" },
-    { icon: Globe, title: "ilya.pro", type: "link" },
+    { icon: Globe, title: "ponsik.pro", type: "link" },
   ];
   return (
     <section className="relative flex full-line-bottom h-auto border-x p-4 gap-2 flex-col items-center justify-center">
