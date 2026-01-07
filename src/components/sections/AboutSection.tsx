@@ -1,8 +1,4 @@
-import React from "react";
-import { usePortfolioConfig } from "@/hooks/usePortfolioConfig";
-
 function AboutSection() {
-  const { config } = usePortfolioConfig();
 
   return (
     <section className="border-x full-line-bottom  p-8 md:p-12 relative overflow-hidden">
