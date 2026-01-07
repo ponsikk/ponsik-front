@@ -12,31 +12,35 @@ import ContactMeSection from "@/components/sections/ContactMeSection";
 import FooterSection from "@/components/sections/FooterSection";
 
 import LandingAnimationWrapper from "@/components/LandingAnimationWrapper";
+import CursorFollower from "@/components/CursorFollower";
 
 export default function Home() {
   return (
-    <LandingAnimationWrapper>
-      <TopSection />
+    <>
+      <CursorFollower />
+      <LandingAnimationWrapper>
+        <TopSection />
 
-      <ProfileSection />
-      <SectionSeparator className="full-line-bottom" />
+        <ProfileSection />
+        <SectionSeparator className="full-line-bottom" />
 
-      <BioSection />
-      <SectionSeparator className="" />
-      <SocialLinks />
-      <SectionSeparator className="full-line-bottom" />
-      <AboutSection />
-      <SectionSeparator className="full-line-bottom" />
-      <TechStackSection />
-      <SectionSeparator className="full-line-bottom" />
-      {/* <ProjectsSection /> */}
-      {/* <SectionSeparator className="full-line-bottom" /> */}
-      <ExperienceSection />
-      <SectionSeparator className="full-line-bottom" />
-      <ContactMeSection />
-      <SectionSeparator className="full-line-bottom" />
-      <FooterSection />
-      <SectionSeparator className="full-line-bottom" />
-    </LandingAnimationWrapper>
+        <BioSection />
+        <SectionSeparator className="" />
+        <SocialLinks />
+        <SectionSeparator className="full-line-bottom" />
+        <AboutSection />
+        <SectionSeparator className="full-line-bottom" />
+        <TechStackSection />
+        <SectionSeparator className="full-line-bottom" />
+        {/* <ProjectsSection /> */}
+        {/* <SectionSeparator className="full-line-bottom" /> */}
+        <ExperienceSection />
+        <SectionSeparator className="full-line-bottom" />
+        <ContactMeSection />
+        <SectionSeparator className="full-line-bottom" />
+        <FooterSection />
+        <SectionSeparator className="full-line-bottom" />
+      </LandingAnimationWrapper>
+    </>
   );
 }
