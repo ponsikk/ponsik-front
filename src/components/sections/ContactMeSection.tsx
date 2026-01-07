@@ -111,7 +111,7 @@ function ContactMeSection() {
                         <div className="relative">
                           <Input
                             className="peer ps-9 pe-9 font-mono"
-                            placeholder="Md Taqui Imam"
+                            placeholder="Your name"
                             type="text"
                             {...field}
                           />
@@ -135,7 +135,7 @@ function ContactMeSection() {
                         <div className="relative">
                           <Input
                             className="peer ps-9 pe-9 font-mono"
-                            placeholder="mdtaqui.jhar@gmail.com"
+                            placeholder="your@email.com"
                             type="text"
                             {...field}
                           />
@@ -171,8 +171,8 @@ function ContactMeSection() {
                 />
                 <Button type="submit" disabled={form.formState.isSubmitting} >
                   {
-                    form.formState.isSubmitting ? "Sending":<>
-                  Send <Forward />
+                    form.formState.isSubmitting ? "Sending" : <>
+                      Send <Forward />
                     </>
                   }
                 </Button>

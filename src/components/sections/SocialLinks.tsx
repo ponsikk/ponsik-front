@@ -1,56 +1,38 @@
 import React from "react";
 import TwitterLogo from "../../../public/twitterLogo.webp";
-import DailyDevLogo from "../../../public/dailydevLogo.webp";
-import LinkedinLogo from "../../../public/linkedinLogo.webp";
 import GithubLogo from "../../../public/githubLogo.webp";
-import DevToLogo from "../../../public/devToLogo.webp";
-import MediumLogo from "../../../public/mediumLogo.webp";
 import { cn } from "@/lib/utils";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, MessageCircle, Globe } from "lucide-react";
+
 function SocialLinks() {
   const socialLinks = [
     {
-      name: "Twitter",
-      username: "@md_taqui_imam",
-      src: TwitterLogo.src,
-      alt: "Twitter",
-      href: "https://twitter.com/md_taqui_imam",
-    },
-
-    {
-      name: "LinkedIn",
-      username: "@taqui-imam",
-      src: LinkedinLogo.src,
-      alt: "LinkedIn",
-      href: "https://www.linkedin.com/in/taqui-imam/",
-    },
-    {
       name: "GitHub",
-      username: "@Taqui-786",
+      username: "@ponsikk",
       src: GithubLogo.src,
       alt: "GitHub",
-      href: "https://github.com/taqui-786",
+      href: "https://github.com/ponsikk",
     },
     {
-      name: "Dev.to",
-      username: "@random_ti",
-      src: DevToLogo.src,
-      alt: "devDotTo",
-      href: "https://dev.to/random_ti",
+      name: "Telegram",
+      username: "@ponsikkkk",
+      icon: MessageCircle,
+      alt: "Telegram",
+      href: "https://t.me/ponsikkkk",
     },
     {
-      name: "Medium",
-      username: "@mdtaqui.jhar",
-      src: MediumLogo.src,
-      alt: "Medium",
-      href: "https://medium.com/@mdtaqui.jhar",
+      name: "Twitter / X",
+      username: "@ponsiktwi",
+      src: TwitterLogo.src,
+      alt: "Twitter",
+      href: "https://x.com/ponsiktwi",
     },
     {
-      name: "DailyDev",
-      username: "@taqui_786",
-      src: DailyDevLogo.src,
-      alt: "DailyDev",
-      href: "https://app.daily.dev/taqui_786",
+      name: "Reddit",
+      username: "u/Ponsik",
+      icon: Globe,
+      alt: "Reddit",
+      href: "https://www.reddit.com/user/Ponsik/",
     },
   ];
   return (
@@ -72,13 +54,19 @@ function SocialLinks() {
             )}
             key={index}
           >
-            <div className="relative size-12 shrink-0">
-              <img
-                src={link.src}
-                alt={link.alt}
-                className="rounded-xl"
-                loading="lazy"
-              />
+            <div className="relative size-12 shrink-0 flex items-center justify-center">
+              {link.src ? (
+                <img
+                  src={link.src}
+                  alt={link.alt}
+                  className="rounded-xl"
+                  loading="lazy"
+                />
+              ) : link.icon ? (
+                <div className="size-12 bg-muted rounded-xl flex items-center justify-center">
+                  <link.icon className="size-6" />
+                </div>
+              ) : null}
             </div>
             <div className="flex flex-col items-start grow justify-between  ">
               <h3 className="font-medium group-hover/link:underline underline-offset-4 ">

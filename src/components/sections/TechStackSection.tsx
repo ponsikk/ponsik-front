@@ -4,40 +4,29 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Auth0Icon, BootstrapIcon, ClaudeIconIcon, CssIcon, DockerIcon, DrizzleIcon, FigmaIcon, FileTypeReactjsIcon, GithubActionsIcon, GithubTwoIcon, GitIcon, JavascriptIcon, MaterialuiIcon, MongodbIcon, MysqlDarkIcon, NestjsIcon, NextjsIcon, NodejsIconIcon, OpenaiIcon, PhpIcon, PostgresqlIcon, PrismaIcon, ReactnavigationIcon, ReactQueryIconIcon, ReactRouterIcon, RedisIcon, ReduxIcon, ShadcnuiIcon, TailwindcssIcon, TypescriptIcon } from "../Icons";
+import { ClaudeIconIcon, DockerIcon, FastApiIcon, GithubActionsIcon, GithubTwoIcon, GitIcon, JavaIcon, JavascriptIcon, KafkaIcon, KubernetesIcon, NextjsIcon, OpenaiIcon, PostgresqlIcon, PythonIcon, FileTypeReactjsIcon, RedisIcon, ShadcnuiIcon, SpringIcon, TailwindcssIcon, TypescriptIcon } from "../Icons";
 function TechStackSection() {
   const techStack = [
-    { name: "JavaScript", icon: JavascriptIcon },
+    { name: "Java", icon: JavaIcon },
+    { name: "Spring Boot", icon: SpringIcon },
+    { name: "Python", icon: PythonIcon },
+    { name: "FastAPI", icon: FastApiIcon },
     { name: "TypeScript", icon: TypescriptIcon },
-    { name: "Reactjs", icon: FileTypeReactjsIcon },
-    { name: "Nextjs", icon: NextjsIcon },
-    { name: "Nodejs", icon: NodejsIconIcon },
-    { name: "NestJs", icon: NestjsIcon },
-
-    { name: "TailwindCSS", icon: TailwindcssIcon },
-    { name: "CSS", icon: CssIcon },
-    { name: "Shadcn Ui", icon: ShadcnuiIcon },
-    { name: "Material Ui", icon: MaterialuiIcon },
-    { name: "Bootstrap", icon: BootstrapIcon },
-    { name: "PHP", icon: PhpIcon },
-    { name: "OAuth", icon: Auth0Icon },
-    { name: "React-Query", icon: ReactQueryIconIcon },
-    { name: "React-Redux", icon: ReduxIcon },
-    { name: "React-Router", icon: ReactRouterIcon },
-    { name: "React-Navigation", icon: ReactnavigationIcon },
-    { name: "Git", icon: GitIcon },
-    { name: "Github", icon: GithubTwoIcon },
-    { name: "Github-Actions", icon: GithubActionsIcon },
-    { name: "Docker", icon: DockerIcon },
-    { name: "My Sql", icon: MysqlDarkIcon },
-    { name: "MongoDB", icon: MongodbIcon },
+    { name: "JavaScript", icon: JavascriptIcon },
+    { name: "React", icon: FileTypeReactjsIcon },
+    { name: "Next.js", icon: NextjsIcon },
+    { name: "PostgreSQL", icon: PostgresqlIcon },
     { name: "Redis", icon: RedisIcon },
-    { name: "Postgres", icon: PostgresqlIcon },
-    { name: "Prisma ORM", icon: PrismaIcon },
-    { name: "Drizzle ORM", icon: DrizzleIcon },
-    { name: "Figma", icon: FigmaIcon },
-    { name: "Chat GPT", icon: OpenaiIcon },
-    { name: "Claude Ai", icon: ClaudeIconIcon },
+    { name: "Kafka", icon: KafkaIcon },
+    { name: "Docker", icon: DockerIcon },
+    { name: "Kubernetes", icon: KubernetesIcon },
+    { name: "Git", icon: GitIcon },
+    { name: "GitHub", icon: GithubTwoIcon },
+    { name: "GitHub Actions", icon: GithubActionsIcon },
+    { name: "TailwindCSS", icon: TailwindcssIcon },
+    { name: "Shadcn UI", icon: ShadcnuiIcon },
+    { name: "OpenAI", icon: OpenaiIcon },
+    { name: "Claude AI", icon: ClaudeIconIcon },
   ];
   return (
     <section className=" z-10 border-x full-line-bottom relative">
@@ -45,7 +34,7 @@ function TechStackSection() {
         Tech Stack
       </h2>
       <div className="relative">
-          <div className=" absolute size-full [--pattern-foreground:var(--color-zinc-950)]/5 dark:[--pattern-foreground:var(--color-white)]/5 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center bg-zinc-950/0.75 dark:bg-white/0.75 z-10"/>
+        <div className=" absolute size-full [--pattern-foreground:var(--color-zinc-950)]/5 dark:[--pattern-foreground:var(--color-white)]/5 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center bg-zinc-950/0.75 dark:bg-white/0.75 z-10" />
         <div className="flex flex-wrap gap-4 p-4 ">
           {techStack.map((tech, index) => {
             const IconComponent = tech.icon;

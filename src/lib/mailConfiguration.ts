@@ -2,19 +2,19 @@
 import nodemailer from "nodemailer";
 
 interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-  subject?: string;
+    name: string;
+    email: string;
+    message: string;
+    subject?: string;
 }
 
 // HTML Email Template Function
 function createContactEmailTemplate({
-  name,
-  email,
-  message,
+    name,
+    email,
+    message,
 }: ContactFormData): string {
-  return `
+    return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -206,14 +206,14 @@ function createContactEmailTemplate({
                 
                 <div class="timestamp">
                     📅 Received on: ${new Date().toLocaleString("en-US", {
-                      weekday: "long",
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      timeZoneName: "short",
-                    })}
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZoneName: "short",
+    })}
                 </div>
             </div>
             
@@ -229,31 +229,31 @@ function createContactEmailTemplate({
 
 // Updated sendMail function
 export async function sendMail({ name, email, message }: ContactFormData) {
-  const { SMPT_HOST, SMPT_USER, SMPT_PASS } = process.env;
+    const { SMPT_HOST, SMPT_USER, SMPT_PASS } = process.env;
 
-  const transport = nodemailer.createTransport({
-    host: SMPT_HOST,
-    port: 587,
-    secure: false,
-    auth: {
-      user: SMPT_USER,
-      pass: SMPT_PASS,
-    },
-  });
+    const transport = nodemailer.createTransport({
+        host: SMPT_HOST,
+        port: 587,
+        secure: false,
+        auth: {
+            user: SMPT_USER,
+            pass: SMPT_PASS,
+        },
+    });
 
-  // Generate HTML email body
-  const htmlBody = createContactEmailTemplate({ name, email, message });
+    // Generate HTML email body
+    const htmlBody = createContactEmailTemplate({ name, email, message });
 
-  // Create subject line if not provided
-  const emailSubject = `New Contact Form Submission from ${name}`;
+    // Create subject line if not provided
+    const emailSubject = `New Contact Form Submission from ${name}`;
 
-  try {
-    const sendResult = await transport.sendMail({
-      from: "mdtaqui.jhar@gmail.com", // Use the authenticated user as sender
-      to: "mdtaqui.jhar@gmail.com",
-      subject: emailSubject,
-      html: htmlBody,
-      text: `
+    try {
+        const sendResult = await transport.sendMail({
+            from: "ponsik123@gmail.com", // Use the authenticated user as sender
+            to: "ponsik123@gmail.com",
+            subject: emailSubject,
+            html: htmlBody,
+            text: `
 New Contact Form Submission
 
 Name: ${name}
@@ -262,11 +262,11 @@ Message: ${message}
 
 Received on: ${new Date().toLocaleString()}
             `.trim(),
-    });
+        });
 
-    return sendResult.accepted.length > 0 ? true : false;
-  } catch (error) {
-    console.error("Email sending failed:", error);
-    return false;
-  }
+        return sendResult.accepted.length > 0 ? true : false;
+    } catch (error) {
+        console.error("Email sending failed:", error);
+        return false;
+    }
 }
