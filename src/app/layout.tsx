@@ -68,13 +68,13 @@ export default function RootLayout({
         className={`${fontSans.variable} ${fontMono.variable} `}
         suppressHydrationWarning
       >
+        <CursorFollower />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <CursorFollower />
           {/* <Header /> */}
           {children}
         </ThemeProvider>
