@@ -6,7 +6,7 @@ import SocialLinks from "@/components/sections/SocialLinks";
 import AboutSection from "@/components/sections/AboutSection";
 import TopSection from "@/components/sections/TopSection";
 import TechStackSection from "@/components/sections/TechStackSection";
-import ProjectsSection from "@/components/sections/ProjectsSection";
+// import ProjectsSection from "@/components/sections/ProjectsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ContactMeSection from "@/components/sections/ContactMeSection";
 import FooterSection from "@/components/sections/FooterSection";
@@ -29,8 +29,8 @@ export default function Home() {
       <SectionSeparator className="full-line-bottom" />
       <TechStackSection />
       <SectionSeparator className="full-line-bottom" />
-      <ProjectsSection />
-      <SectionSeparator className="full-line-bottom" />
+      {/* <ProjectsSection /> */}
+      {/* <SectionSeparator className="full-line-bottom" /> */}
       <ExperienceSection />
       <SectionSeparator className="full-line-bottom" />
       <ContactMeSection />

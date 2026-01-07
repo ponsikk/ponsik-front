@@ -1,14 +1,14 @@
-import { BriefcaseBusiness, CodeXml, Globe, Mail, MapPin } from "lucide-react";
+import { BriefcaseBusiness, CodeXml, Globe, Mail, MapPin, LaptopMinimal } from "lucide-react";
 import React from "react";
 
 function BioSection() {
   const bioData = [
     {
       icon: CodeXml,
-      title: "Java Full Stack Developer | Spring Specialist",
+      title: "Java Full Stack Developer | Spring Expert",
       type: "text",
     },
-    { icon: BriefcaseBusiness, title: "Available for Remote Work", type: "text" },
+    { icon: LaptopMinimal, title: "Available for Remote Work", type: "text" },
     { icon: MapPin, title: "Russia (Remote)", type: "text" },
     { icon: Mail, title: "ponsik123@gmail.com", type: "link" },
     { icon: Globe, title: "ponsik.pro", type: "link" },
