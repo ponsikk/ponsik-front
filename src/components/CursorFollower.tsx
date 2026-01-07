@@ -28,29 +28,32 @@ export default function CursorFollower() {
 
     return (
         <motion.div
-            className="pointer-events-none fixed inset-0 z-50 hidden md:block"
+            className="pointer-events-none fixed top-0 left-0 w-full h-full"
+            style={{ zIndex: 9999 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: isVisible ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
         >
             <motion.div
-                className="absolute rounded-full"
+                className="absolute"
                 style={{
-                    width: 400,
-                    height: 400,
-                    background: "radial-gradient(circle, rgba(255, 180, 50, 0.35) 0%, rgba(255, 150, 0, 0.15) 40%, transparent 70%)",
-                    filter: "blur(60px)",
-                    transform: "translate(-50%, -50%)",
+                    width: 500,
+                    height: 500,
+                    borderRadius: "50%",
+                    background: "radial-gradient(circle, rgba(255, 180, 50, 0.4) 0%, rgba(255, 150, 0, 0.2) 30%, transparent 60%)",
+                    filter: "blur(80px)",
+                    marginLeft: -250,
+                    marginTop: -250,
                 }}
                 animate={{
-                    x: mousePosition.x,
-                    y: mousePosition.y,
+                    left: mousePosition.x,
+                    top: mousePosition.y,
                 }}
                 transition={{
                     type: "spring",
-                    stiffness: 150,
-                    damping: 15,
-                    mass: 0.1,
+                    stiffness: 100,
+                    damping: 20,
+                    mass: 0.5,
                 }}
             />
         </motion.div>
