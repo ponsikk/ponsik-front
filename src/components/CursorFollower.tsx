@@ -36,10 +36,10 @@ export default function CursorFollower() {
             <motion.div
                 className="absolute rounded-full"
                 style={{
-                    width: 300,
-                    height: 300,
-                    background: "radial-gradient(circle, rgba(255, 200, 50, 0.15) 0%, rgba(255, 180, 0, 0.05) 40%, transparent 70%)",
-                    filter: "blur(40px)",
+                    width: 400,
+                    height: 400,
+                    background: "radial-gradient(circle, rgba(255, 180, 50, 0.35) 0%, rgba(255, 150, 0, 0.15) 40%, transparent 70%)",
+                    filter: "blur(60px)",
                     transform: "translate(-50%, -50%)",
                 }}
                 animate={{
