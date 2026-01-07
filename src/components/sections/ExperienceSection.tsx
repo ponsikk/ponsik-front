@@ -1,290 +1,417 @@
-import React from "react";
-import {
-  Briefcase,
-  CodeXml,
-  ExternalLink,
-  GraduationCap,
-  Lightbulb,
-} from "lucide-react";
+"use client";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import { ArrowUpRight, CodeXml, GraduationCap, Lightbulb } from "lucide-react";
 
 function ExperienceSection() {
-  const experienceData = [
-    {
-      company: "Enterprise FinTech System",
-      role: "Java Full Stack Разработчик",
-      duration: "Май 2023 - Наст. время",
-      description:
-        "Разработка единых систем управления корпоративной архитектурой. Ответственность за полный цикл разработки: от микросервисов до фронтенда.",
-      tasks: [
-        "Разработка и поддержка микросервисов на Java 17 и Spring Boot 3.",
-        "Создание адаптивных интерфейсов на React, Next.js и TypeScript.",
-        "Рефакторинг легаси-кода и оптимизация производительности БД (PostgreSQL, Redis).",
-        "Внедрение событийно-ориентированной архитектуры (Kafka, RabbitMQ).",
-        "Управление развертыванием через Kubernetes и Docker.",
-        "Менторство младших разработчиков и проведение код-ревью.",
-      ],
-      technologies: ["Java 17", "Spring Boot", "React", "Next.js", "Kafka", "Kubernetes", "Redis", "Docker"],
-    },
-    {
-      company: "Corporate Solutions Developer",
-      role: "Java Backend Разработчик",
-      duration: "Янв 2022 - Мар 2023",
-      description:
-        "Цифровизация бизнес-процессов и разработка корпоративного ПО.",
-      tasks: [
-        "Реализация сложной бизнес-логики и REST API.",
-        "Оптимизация SQL-запросов и маппинга Hibernate для высоких нагрузок.",
-        "Модернизация легаси-систем на современный стек Spring Boot.",
-        "Настройка мониторинга (Grafana/Prometheus) и логирования (ELK).",
-        "Участие в Agile/Scrum процессах и планировании спринтов.",
-      ],
-      technologies: ["Java 11", "Spring Boot", "Hibernate", "PostgreSQL", "Liquibase", "JUnit"],
-    },
-  ];
-
-  const freelanceData = [
-    {
-      project: "Full Stack Консалтинг",
-      role: "Senior Разработчик",
-      duration: "2021 - Наст. время",
-      description:
-        "Разработка кастомных веб-решений для международных клиентов с использованием современного стека Java & JS.",
-      tasks: [
-        "Проектирование масштабируемых SaaS-приложений.",
-        "Разработка Telegram Mini Apps и ботов с AI-интеграцией.",
-        "Консультации по системному дизайну и облачной инфраструктуре.",
-      ],
-      technologies: ["FastAPI", "Python", "React", "Spring Cloud", "AI Integration"],
-    },
-  ];
-
-  const educationData = [
-    {
-      institution: "РТУ МИРЭА",
-      degree: "Бакалавр техники и технологии",
-      duration: "2016 - 2020",
-      description: "Материаловедение и технологии материалов. Фундаментальная инженерная подготовка.",
-    },
-  ];
-
+  const [openItem, setOpenItem] = useState("experience-1");
+  const [openFreelanceItem, setOpenFreelanceItem] = useState("");
+  const [openEducationItem, setOpenEducationItem] = useState("");
   return (
-    <section className="relative flex flex-col full-line-bottom " id="experience">
-      {/* Experience Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 border-b ">
-        {/* Left Column - Title */}
-        <div className="p-8 md:p-12 md:sticky md:top-20 md:h-fit md:border-r border-b md:border-b-0 ">
-          <div className="flex items-center gap-3 mb-4">
-            <Briefcase className="w-6 h-6 text-primary" />
-            <span className="text-sm font-mono text-muted-foreground uppercase tracking-wider">
-              Карьерный путь
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Опыт работы
-          </h2>
-          <p className="text-muted-foreground leading-relaxed md:text-lg">
-            Таймлайн моего профессионального пути: ключевые роли, значимые проекты и технический рост.
-          </p>
+    <section className=" border-x  full-line-bottom relative">
+      <h2 className=" text-3xl pl-4 font-semibold relative full-line-bottom ">
+        Experience{" "}
+      </h2>
+      <div className=" full-line-bottom relative ">
+        {experienceData.map((exp, index) => (
+          <div key={index} className="relative pl-10">
+            {index !== experienceData.length - 1 && (
+              <div className="absolute left-6 top-5 h-full w-px bg-border" />
+            )}
 
-          <div className="mt-8 hidden md:block">
-            {/* CV Download Link Placeholder */}
-            {/* 
-            <a
-              href="/resume_ru.pdf" 
-              target="_blank"
-              className="inline-flex items-center gap-2 text-primary hover:underline underline-offset-4"
+            <div className="absolute left-3 top-5 z-10">
+              <div
+                className="flex size-6 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground  "
+                aria-hidden="true"
+              >
+                <exp.icon className="size-4" />
+              </div>
+            </div>
+
+            {/* Accordion */}
+            <Accordion
+              type="single"
+              collapsible
+              value={openItem}
+              className="border-b-0"
+              onValueChange={setOpenItem}
             >
-              Скачать резюме <ExternalLink className="w-4 h-4" />
-            </a> 
-            */}
-          </div>
-        </div>
-
-        {/* Right Column - Accordion */}
-        <div className="lining-tilt-background">
-          <Accordion type="single" collapsible className="w-full">
-            {experienceData.map((exp, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="border-b last:border-b-0 px-6 md:px-10 py-2 group hover:bg-muted/30 transition-colors"
-              >
-                <AccordionTrigger className="hover:no-underline py-6">
-                  <div className="flex flex-col items-start text-left w-full gap-2">
-                    <div className="flex items-center justify-between w-full">
-                      <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                        {exp.company}
-                      </h3>
-                      <span className="text-xs font-mono text-muted-foreground border px-2 py-1 rounded-full whitespace-nowrap ml-2">
-                        {exp.duration}
-                      </span>
-                    </div>
-                    <p className="text-base text-foreground/80 font-medium">
-                      {exp.role}
-                    </p>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="pt-2 pb-6 space-y-6">
-                    <p className="text-muted-foreground leading-relaxed">
-                      {exp.description}
-                    </p>
-
-                    <div>
-                      <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
-                        <CodeXml className="w-4 h-4 text-primary" /> Ключевые задачи
-                      </h4>
-                      <ul className="space-y-2">
-                        {exp.tasks.map((task, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                            <span>{task}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-semibold mb-3">Технологии</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="text-xs px-2.5 py-1 rounded-md bg-secondary/50 text-secondary-foreground border border-secondary"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </div>
-
-      {/* Freelance Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 border-b">
-        {/* Left Column */}
-        <div className="p-8 md:p-12 md:sticky md:top-20 md:h-fit md:border-r border-b md:border-b-0 order-first ">
-          <div className="flex items-center gap-3 mb-4">
-            <Lightbulb className="w-6 h-6 text-primary" />
-            <span className="text-sm font-mono text-muted-foreground uppercase tracking-wider">
-              Независимая работа
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Фриланс и Проекты
-          </h2>
-          <p className="text-muted-foreground leading-relaxed md:text-lg">
-            Избранные консалтинговые проекты и решения для клиентов, демонстрирующие гибкость и delivery-скиллы.
-          </p>
-        </div>
-
-        {/* Right Column */}
-        <div className="lining-tilt-background">
-          <Accordion type="single" collapsible className="w-full">
-            {freelanceData.map((project, index) => (
-              <AccordionItem
-                key={index}
-                value={`freelance-${index}`}
-                className="border-b last:border-b-0 px-6 md:px-10 py-2 group hover:bg-muted/30 transition-colors"
-              >
-                <AccordionTrigger className="hover:no-underline py-6">
-                  <div className="flex flex-col items-start text-left w-full gap-2">
-                    <div className="flex items-center justify-between w-full">
-                      <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                        {project.project}
-                      </h3>
-                      <span className="text-xs font-mono text-muted-foreground border px-2 py-1 rounded-full whitespace-nowrap ml-2">
-                        {project.duration}
-                      </span>
-                    </div>
-                    <p className="text-base text-foreground/80 font-medium">
-                      {project.role}
-                    </p>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="pt-2 pb-6 space-y-6">
-                    <p className="text-muted-foreground leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    <div>
-                      <h4 className="text-sm font-semibold mb-3">Достижения</h4>
-                      <ul className="space-y-2">
-                        {project.tasks.map((task, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                            <span>{task}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="text-xs px-2.5 py-1 rounded-md bg-secondary/50 text-secondary-foreground border border-secondary"
+              <AccordionItem value={`experience-${exp.id}`}>
+                <AccordionTrigger className="border-b-0">
+                  <div className="flex-1 flex flex-col items-start justify-center py-4 pl-4 gap-1 h-full">
+                    <h3 className="text-balance  font-medium text-base leading-snug flex gap-2 font-mono items-center justify-center">
+                      {exp.company}
+                      {exp.job ? (
+                        <a
+                          href={exp.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          {tech}
+                          <ArrowUpRight className="size-4 text-muted-foreground hover:text-primary" />
+                        </a>
+                      ) : (
+                        <span className="   size-2 border-2 border-white animate-ping bg-green-500  dark:border-gray-800 rounded-full"></span>
+                      )}
+                    </h3>
+                    <span className="text-muted-foreground font-normal text-sm">
+                      {exp.duration}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4 border-b-0!">
+                  <div className="prose prose-sm max-w-none font-mono text-foreground prose-zinc dark:prose-invert prose-headings:font-sans prose-headings:font-semibold prose-headings:text-balance prose-h2:border-b prose-h2:border-edge prose-h2:pb-2 prose-h2:text-2xl prose-lead:text-base prose-a:font-medium prose-a:break-words prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-edge">
+                    {exp.job ? (
+                      <p>
+                        I am a <strong>{exp.title}</strong> at {exp.company},
+                        {exp.description}
+                      </p>
+                    ) : (
+                      <p> {exp.description}</p>
+                    )}
+                    <ul>
+                      {exp.tasks.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {exp.badge.map((badge, index) => (
+                        <span
+                          key={index}
+                          className="inline-flex items-center rounded-lg bg-zinc-50 px-1.5 py-0.5 font-mono text-xs text-muted-foreground dark:bg-zinc-900"
+                        >
+                          {badge}
                         </span>
                       ))}
                     </div>
                   </div>
                 </AccordionContent>
               </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </div>
-
-      {/* Education Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        {/* Left Column */}
-        <div className="p-8 md:p-12 md:sticky md:top-20 md:h-fit md:border-r border-b md:border-b-0">
-          <div className="flex items-center gap-3 mb-4">
-            <GraduationCap className="w-6 h-6 text-primary" />
-            <span className="text-sm font-mono text-muted-foreground uppercase tracking-wider">
-              Образование
-            </span>
+            </Accordion>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Академический бэкграунд
-          </h2>
-        </div>
-
-        {/* Right Column */}
-        <div className="lining-tilt-background p-6 md:p-10 space-y-8">
-          {educationData.map((edu, index) => (
-            <div key={index} className="space-y-2">
-              <div className="flex justify-between items-start">
-                <h3 className="text-xl font-semibold">{edu.institution}</h3>
-                <span className="text-xs font-mono text-muted-foreground border px-2 py-1 rounded-full whitespace-nowrap">
-                  {edu.duration}
-                </span>
-              </div>
-              <p className="text-base text-foreground/80 font-medium">{edu.degree}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {edu.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
+      <div className="px-4 py-2   ">
+        <h3 className="text-primary font-medium ">Freelancing</h3>
+      </div>
+      <div className=" full-line-bottom relative ">
+        {freelanceData.map((freelancing, index) => (
+          <div key={index} className="relative pl-10">
+            {index !== freelanceData.length - 1 && (
+              <div className="absolute left-6 top-5 h-full w-px bg-border" />
+            )}
 
+            <div className="absolute left-3 top-5 z-10">
+              <div
+                className="flex size-6 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground  "
+                aria-hidden="true"
+              >
+                <freelancing.icon className="size-4" />
+              </div>
+            </div>
+
+            {/* Accordion */}
+            <Accordion
+              type="single"
+              collapsible
+              value={openFreelanceItem}
+              className="border-b-0"
+              onValueChange={setOpenFreelanceItem}
+            >
+              <AccordionItem value={`experience-${freelancing.id}`}>
+                <AccordionTrigger className="border-b-0">
+                  <div className="flex-1 flex flex-col items-start justify-center py-4 pl-4 gap-1 h-full">
+                    <h3 className="text-balance font-mono  font-medium text-base leading-snug flex gap-2 items-center justify-center">
+                      {freelancing.project}
+
+                      <a
+                        href={freelancing.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ArrowUpRight className="size-4 text-muted-foreground hover:text-primary" />
+                      </a>
+                    </h3>
+                    <span className="text-muted-foreground font-normal text-sm">
+                      {freelancing.duration}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4 border-b-0!">
+                  <div className="prose prose-sm max-w-none font-mono text-foreground prose-zinc dark:prose-invert prose-headings:font-sans prose-headings:font-semibold prose-headings:text-balance prose-h2:border-b prose-h2:border-edge prose-h2:pb-2 prose-h2:text-2xl prose-lead:text-base prose-a:font-medium prose-a:break-words prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-edge">
+                    <p> {freelancing.description}</p>
+
+                    <ul>
+                      {freelancing.tasks.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {freelancing.badge.map((badge, index) => (
+                        <span
+                          key={index}
+                          className="inline-flex items-center rounded-lg bg-zinc-50 px-1.5 py-0.5 font-mono text-xs text-muted-foreground dark:bg-zinc-900"
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        ))}
+      </div>
+      <div className="px-4 py-2   ">
+        <h3 className="text-primary font-medium ">Education</h3>
+      </div>
+      <div className=" full-line-bottom relative ">
+        {educationData.map((institute, index) => (
+          <div key={index} className="relative pl-10">
+            {index !== educationData.length - 1 && (
+              <div className="absolute left-6 top-5 h-full w-px bg-border" />
+            )}
+
+            <div className="absolute left-3 top-5 z-10">
+              <div
+                className="flex size-6 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground  "
+                aria-hidden="true"
+              >
+                <institute.icon className="size-4" />
+              </div>
+            </div>
+
+            {/* Accordion */}
+            <Accordion
+              type="single"
+              collapsible
+              value={openEducationItem}
+              className="border-b-0"
+              onValueChange={setOpenEducationItem}
+            >
+              <AccordionItem value={`experience-${index}`}>
+                <AccordionTrigger className="border-b-0">
+                  <div className="flex-1 flex flex-col items-start justify-center py-4 pl-4  gap-1 h-full">
+                    <h3 className="text-balance font-mono  font-medium text-base leading-snug flex gap-2 items-center justify-center">
+                      {institute.institution}
+
+                    </h3>
+                    <span className="text-muted-foreground font-normal text-sm">
+                      {institute.duration}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4 border-b-0!">
+                  <div className="prose prose-sm max-w-none font-mono text-foreground prose-zinc dark:prose-invert prose-headings:font-sans prose-headings:font-semibold prose-headings:text-balance prose-h2:border-b prose-h2:border-edge prose-h2:pb-2 prose-h2:text-2xl prose-lead:text-base prose-a:font-medium prose-a:break-words prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-edge">
+                    <p> {institute.description}</p>
+
+                    <ul>
+                      {institute.points.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
 
 export default ExperienceSection;
+
+export const DiscountIcon = ({
+  size = 24,
+  color = "currentColor",
+  ...props
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    fill={color}
+    {...props}
+  >
+    <g xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor">
+      <path
+        strokeWidth="2"
+        d="M10.51 3.665a2 2 0 0 1 2.98 0l.7.782a2 2 0 0 0 1.601.663l1.05-.058a2 2 0 0 1 2.107 2.108l-.058 1.049a2 2 0 0 0 .663 1.6l.782.7a2 2 0 0 1 0 2.981l-.782.7a2 2 0 0 0-.663 1.601l.058 1.05a2 2 0 0 1-2.108 2.107l-1.049-.058a2 2 0 0 0-1.6.663l-.7.782a2 2 0 0 1-2.981 0l-.7-.782a2 2 0 0 0-1.601-.663l-1.05.058a2 2 0 0 1-2.107-2.108l.058-1.049a2 2 0 0 0-.663-1.6l-.782-.7a2 2 0 0 1 0-2.981l.782-.7a2 2 0 0 0 .663-1.601l-.058-1.05A2 2 0 0 1 7.16 5.053l1.049.058a2 2 0 0 0 1.6-.663l.7-.782Z"
+      />
+      <path
+        strokeLinejoin="round"
+        strokeWidth="3"
+        d="M9.5 9.5h.01v.01H9.5zm5 5h.01v.01h-.01z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="m15 9l-6 6"
+      />
+    </g>
+  </svg>
+);
+
+export const CoinIcon = ({ size = 24, color = "currentColor", ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    fill={color}
+    {...props}
+  >
+    <path
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      d="M6 2h12v2H6V2zM4 6V4h2v2H4zm0 12V6H2v12h2zm2 2v-2H4v2h2zm12 0v2H6v-2h12zm2-2v2h-2v-2h2zm0-12h2v12h-2V6zm0 0V4h-2v2h2zm-9-1h2v2h3v2h-6v2h6v6h-3v2h-2v-2H8v-2h6v-2H8V7h3V5z"
+    />
+  </svg>
+);
+
+const experienceData = [
+  {
+    id: 1,
+    title: "Java Full Stack Разработчик",
+    company: "Enterprise FinTech System",
+    icon: CodeXml,
+    job: true,
+    location: "Remote",
+    href: "https://github.com/ponsikk",
+    duration: "Full-Time | Май 2023 - Наст. время",
+    description: ` Разработка единых систем управления корпоративной архитектурой. Полный цикл разработки: от микросервисов до фронтенда.`,
+    tasks: [
+      "Разработка и поддержка микросервисов на Java 17 и Spring Boot 3.",
+      "Создание адаптивных интерфейсов на React, Next.js и TypeScript.",
+      "Рефакторинг легаси-кода и оптимизация БД (PostgreSQL, Redis).",
+      "Внедрение событийно-ориентированной архитектуры (Kafka, RabbitMQ).",
+      "Управление развертыванием через Kubernetes и Docker.",
+      "Менторство младших разработчиков и проведение код-ревью.",
+    ],
+    badge: [
+      "Java 17",
+      "Spring Boot",
+      "React",
+      "Next.js",
+      "Kafka",
+      "Kubernetes",
+      "Redis",
+      "Docker",
+      "PostgreSQL",
+    ],
+  },
+  {
+    id: 2,
+    title: "Открыт для новых возможностей",
+    company: "Ищу интересные проекты",
+    job: false,
+    icon: Lightbulb,
+    location: "Россия (Удаленно)",
+    href: "",
+    duration: "Full-Time | Текущий статус",
+    description: `Ищу возможности в Java backend или Full Stack разработке.`,
+    tasks: [
+      "Глубокая экспертиза в экосистеме Java Spring и backend-архитектуре.",
+      "Опыт работы с React/Next.js для frontend-разработки.",
+      "Hands-on с AI-интеграциями и LLM API.",
+      "Гибкий график: Part-time и Full-time.",
+      "Открыт к удаленной работе по всему миру.",
+    ],
+    badge: ["Open to Work", "Remote", "Java", "Full Stack"],
+  },
+];
+
+const freelanceData = [
+  {
+    id: 1,
+    project: "AI Анализатор Документов",
+    icon: CodeXml,
+    location: "Remote",
+    href: "https://github.com/ponsikk",
+    duration: "Freelance | 2024",
+    description: `Система анализа документов для госсектора с использованием LLM для интеллектуальной обработки PDF, DOCX и HTML.`,
+    tasks: [
+      "Построил RAG-обработку архивов из 30-50 документов.",
+      "Реализовал chain-of-thought промптинг для сложного анализа.",
+      "Создал Telegram mini-app интерфейс для удобного доступа.",
+      "Развернул локальные AI-модели на серверах клиента.",
+      "Разработал full-stack приложение на FastAPI и React.",
+    ],
+    badge: [
+      "Python",
+      "FastAPI",
+      "OpenAI API",
+      "React",
+      "Docker",
+      "LangChain",
+      "RAG",
+      "Telegram Bot",
+    ],
+  },
+  {
+    id: 2,
+    project: "Telegram Mini-Apps Suite",
+    icon: CodeXml,
+    location: "Remote",
+    href: "https://github.com/ponsikk",
+    duration: "Freelance | 2024",
+    description: `Набор из 6+ Telegram мини-приложений для различных бизнес-задач, включая анализ закупок и обработку документов.`,
+    tasks: [
+      "Разработал полные приложения от архитектуры до деплоя.",
+      "Интегрировал несколько LLM-провайдеров (OpenAI, Claude, локальные модели).",
+      "Реализовал асинхронную обработку больших пакетов документов.",
+      "Настроил Docker Compose деплой на VPS.",
+      "Создал админ-панели и аналитические дашборды.",
+    ],
+    badge: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Python",
+      "FastAPI",
+      "Docker",
+      "PostgreSQL",
+      "AI Integration",
+    ],
+  },
+];
+
+
+const educationData = [
+  {
+    duration: "2023 - Наст. время",
+    institution: "Самообразование в разработке ПО",
+    icon: GraduationCap,
+    description:
+      "Интенсивное самообучение в экосистеме Java, Spring Framework и современной веб-разработке.",
+    points: [
+      "8 месяцев глубокого изучения Java (JVM, GC, многопоточность, Spring)",
+      "Spring Boot, Spring Security, Spring Data JPA, Hibernate",
+      "Базы данных: PostgreSQL, Redis, Kafka",
+      "DevOps: Docker, Kubernetes (основы), CI/CD",
+    ],
+  },
+  {
+    duration: "Университет",
+    institution: "Высшее образование",
+    icon: GraduationCap,
+    description:
+      "Высшее техническое образование в области материаловедения с сильной аналитической базой.",
+    points: [
+      "Степень в материаловедении",
+      "Развитые аналитические навыки и навыки решения проблем",
+      "Техническая база для инженерного мышления",
+      "Английский язык уровень B2",
+    ],
+  },
+];
