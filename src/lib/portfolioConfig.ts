@@ -1,14 +1,14 @@
-export const portfolioConfig = {
-  // Basic Information
-  name: "Ilya",
-  nameRu: "Илья",
-  title: "Java Full Stack Developer",
-  description: "Building scalable enterprise applications with Java, Spring & modern frontend",
-  descriptionRu: "Создаю масштабируемые enterprise-приложения на Java, Spring и современном frontend",
-  location: "Russia (Remote)",
+import { Phone, Mail, MapPin, Globe, Briefcase, User, Linkedin, Facebook } from "lucide-react";
 
-  // Contact Information
+export const portfolioConfig = {
+  // Personal Information
+  name: "Илья",
+  title: "Java Full Stack Разработчик",
+  description: "Создаю масштабируемые enterprise-приложения на Java, Spring и современном frontend",
+  location: "Россия (Удаленно)",
   email: "ponsik123@gmail.com",
+  // phone: "+1 (555) 123-4567", // Optional
+  website: "https://ru.ponsik.pro",
 
   // Social Media Links
   socialLinks: {
@@ -17,37 +17,33 @@ export const portfolioConfig = {
     twitter: "https://x.com/ponsiktwi",
     reddit: "https://www.reddit.com/user/Ponsik/",
     discord: ".pons",
+    // linkedin: "https://linkedin.com/in/yourprofile",
+    // facebook: "https://facebook.com/yourprofile",
   },
 
-  // SEO Information
+  // SEO Configurations
   seo: {
-    ogImage: "/api/og",
-    url: "https://ilya.pro", // TODO: заменить на реальный домен
+    title: "Илья - Java Full Stack Разработчик",
+    description: "Портфолио Java разработчика: Spring Boot, Microservices, React, Next.js. Разработка высоконагруженных систем.",
+    ogImage: "/og-image.jpg", // Add your Open Graph image in public folder
+    url: "https://ru.ponsik.pro",
     twitterHandle: "@ponsiktwi",
     keywords: [
-      "Ilya",
-      "Илья",
-      "Java developer",
-      "Java разработчик",
+      "Java Developer",
       "Full Stack Developer",
       "Spring Boot",
-      "Spring Framework",
-      "Backend Developer",
-      "React Developer",
-      "TypeScript",
-      "ponsik",
-      "portfolio",
-      "web developer",
-      "software engineer",
-      "enterprise developer",
-      "microservices",
-      "AI integration",
+      "React",
+      "Next.js",
+      "Microservices",
+      "Portfolio",
+      "Russia",
+      "Разработчик",
+      "Java"
     ],
-    authors: [
-      {
-        name: "Ilya",
-        url: "https://github.com/ponsikk",
-      },
-    ],
+    authors: [{ name: "Илья", url: "https://ru.ponsik.pro" }],
+    creator: "Илья",
+    siteName: "Portfolio",
+    locale: "ru_RU",
+    type: "website",
   },
 };

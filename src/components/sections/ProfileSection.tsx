@@ -6,20 +6,20 @@ import { FlipSentences } from "../ui/FlipSentences";
 
 function ProfileSection() {
   // EN version
-  const flipSentences = [
-    "Java Full Stack Developer building enterprise applications.",
-    "Spring Framework specialist with production experience.",
-    "Backend architect crafting scalable microservices.",
-    "Team Lead delivering production-ready solutions.",
-  ];
-
-  // RU version (для русского сайта раскомментировать)
   // const flipSentences = [
-  //   "Java Full Stack разработчик enterprise-приложений.",
-  //   "Специалист по Spring Framework с опытом в production.",
-  //   "Backend-архитектор масштабируемых микросервисов.",
-  //   "Team Lead, создающий готовые к продакшену решения.",
+  //   "Java Full Stack Developer building enterprise applications.",
+  //   "Spring Framework specialist with production experience.",
+  //   "Backend architect crafting scalable microservices.",
+  //   "Team Lead delivering production-ready solutions.",
   // ];
+
+  // RU version
+  const flipSentences = [
+    "Java Full Stack разработчик enterprise-приложений.",
+    "Специалист по Spring Framework с опытом в production.",
+    "Backend-архитектор масштабируемых микросервисов.",
+    "Team Lead, создающий готовые к продакшену решения.",
+  ];
 
   return (
     <section className="relative flex full-line-bottom h-auto border-x  ">
@@ -40,7 +40,7 @@ function ProfileSection() {
       <div className="flex flex-1 flex-col">
         <div className="flex justify-between grow items-end pb-1 px-4 lining-tilt-background">
           <span className="line-clamp-1 font-mono text-xs text-zinc-300 select-none dark:text-zinc-800 tracking-wider">
-            Available for hire
+            Открыт для предложений
           </span>
         </div>
         <div className=" border-t">

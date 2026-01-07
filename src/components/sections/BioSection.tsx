@@ -1,23 +1,46 @@
-import { BriefcaseBusiness, CodeXml, Globe, Mail, MapPin } from "lucide-react";
+import { BriefcaseBusiness, Globe, Mail, MapPin, LaptopMinimal } from "lucide-react";
 import React from "react";
 
 function BioSection() {
   const bioData = [
     {
-      icon: CodeXml,
-      title: "Java Full Stack Developer | Spring Specialist",
-      type: "text",
+      id: 1,
+      icon: BriefcaseBusiness,
+      text: "Java Full Stack Разработчик | Spring Эксперт",
     },
-    { icon: BriefcaseBusiness, title: "Available for Remote Work", type: "text" },
-    { icon: MapPin, title: "Russia (Remote)", type: "text" },
-    { icon: Mail, title: "ponsik123@gmail.com", type: "link" },
-    { icon: Globe, title: "ilya.pro", type: "link" },
+    {
+      id: 2,
+      icon: LaptopMinimal,
+      text: "Доступен для удаленной работы",
+    },
+    {
+      id: 3,
+      icon: MapPin,
+      text: "Россия (Удаленно)",
+    },
+    // {
+    //   id: 4,
+    //   icon: Phone,
+    //   text: "+7 (999) 999-99-99", // Placeholder phone
+    // },
+    {
+      id: 5,
+      icon: Mail,
+      text: "ponsik123@gmail.com",
+      href: "mailto:ponsik123@gmail.com",
+    },
+    {
+      id: 6,
+      icon: Globe,
+      text: "ponsik.pro",
+      href: "https://ru.ponsik.pro",
+    },
   ];
   return (
     <section className="relative flex full-line-bottom h-auto border-x p-4 gap-2 flex-col items-center justify-center">
       {bioData.map((item, index) => (
         <div
-          key={index}
+          key={item.id}
           className="w-full flex items-center justify-start gap-4 font-mono text-sm "
         >
           <div className="bg-muted shrink-0  text-muted-foreground size-6 flex items-center justify-center rounded-sm ">
