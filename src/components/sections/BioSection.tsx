@@ -46,20 +46,16 @@ function BioSection() {
           <div className="bg-muted shrink-0  text-muted-foreground size-6 flex items-center justify-center rounded-sm ">
             <item.icon className="size-4" />
           </div>{" "}
-          {item.type === "link" ? (
+          {item.href ? (
             <a
               target="_blank"
-              href={
-                item.title.includes(".pro")
-                  ? `https://${item.title}`
-                  : `mailto:${item.title}`
-              }
-              className="text-balance  hover:underline"
+              href={item.href}
+              className="text-balance hover:underline"
             >
-              {item.title}
+              {item.text}
             </a>
           ) : (
-            <span className="text-balance">{item.title}</span>
+            <span className="text-balance">{item.text}</span>
           )}
         </div>
       ))}
