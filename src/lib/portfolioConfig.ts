@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin, Globe, Briefcase, User, Linkedin, Facebook } from 
 
 export const portfolioConfig = {
   // Personal Information
-  name: "Илья",
+  name: "Ponsik | Java Developer",
   title: "Java Full Stack Разработчик",
   description: "Создаю масштабируемые enterprise-приложения на Java, Spring и современном frontend",
   location: "Россия (Удаленно)",

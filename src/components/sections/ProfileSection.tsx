@@ -15,10 +15,11 @@ function ProfileSection() {
 
   // RU version
   const flipSentences = [
-    "Java Full Stack разработчик enterprise-приложений.",
-    "Специалист по Spring Framework с опытом в production.",
-    "Backend-архитектор масштабируемых микросервисов.",
-    "Team Lead, создающий готовые к продакшену решения.",
+    "Java Backend разработчик enterprise-приложений.",
+    "Fullstack: Java/Python backend, React/Telegram Bot frontend.",
+    "Проектирую микросервисную архитектуру на Spring.",
+    "Развиваю навыки в Rust и Web3-технологиях.",
+    "Создаю Telegram-ботов и мини-приложения.",
   ];
 
   return (

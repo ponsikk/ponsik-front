@@ -8,26 +8,22 @@ function AboutSection() {
       </h2>
       <div className="flex flex-col gap-4 py-4 font-mono text-sm ">
         <p className="tracking-wide">
-          Привет! Я Илья — Java Full Stack разработчик с глубокой экспертизой в
-          экосистеме Spring и современных веб-технологиях. Имея более 3 лет опыта,
-          я создаю масштабируемые enterprise-приложения и интеллектуальные решения автоматизации.
+          Привет! Я Илья - Java Fullstack разработчик, работаю с Spring Framework,
+          Python/FastAPI и React. Имею более 3 лет опыта в масштабируемых
+          enterprise-приложениях, интегрирую AI в бизнес-процессы и разрабатываю
+          приложения и ботов от нуля до продакшена.
         </p>
         <p className="tracking-wide">
-          Моя основная экспертиза — Java backend разработка: Spring Boot, Spring Security,
-          Spring Data JPA, Hibernate, с production-опытом в микросервисной архитектуре.
-          На фронтенде я работаю с React, Next.js и TypeScript.
+          Мой основной стек - Java backend-разработка на Spring Framework
+          с production-опытом в микросервисной архитектуре. На фронтенде
+          работаю с React, Next.js и TypeScript.
         </p>
         <p className="tracking-wide">
-          Я успешно запустил 6+ production-приложений, включая AI-powered системы
-          анализа документов, Telegram mini-apps и корпоративные интеграции.
-          Опыт командного лидерства и полного цикла разработки.
+          Веду проекты от идеи до продакшена: AI-интеграции, Telegram-боты, mini-apps.
         </p>
         <p className="tracking-wide">
-          Крепкая база в системном дизайне, базах данных (PostgreSQL, Redis)
-          и DevOps практиках (Docker, Kubernetes, CI/CD).
-        </p>
-        <p className="tracking-wide">
-          Давайте свяжемся и построим что-то масштабируемое вместе!
+          Работаю с современными технологиями и базами данных (PostgreSQL, Redis, Kafka),
+          имею опыт в DevOps (Docker, Kubernetes, CI/CD).
         </p>
       </div>
     </section>

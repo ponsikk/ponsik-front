@@ -5,10 +5,10 @@ function BioSection() {
   const bioData = [
     {
       icon: CodeXml,
-      title: "Java Full Stack Разработчик | Spring Эксперт",
+      title: "Java Fullstack | Spring Ecosystem | FastAPI | React",
       type: "text",
     },
-    { icon: LaptopMinimal, title: "Доступен для удаленной работы", type: "text" },
+    { icon: LaptopMinimal, title: "Открыт к: удалённой работе, гибрид, офис (Москва)", type: "text" },
     { icon: MapPin, title: "Россия (Удаленно)", type: "text" },
     { icon: Mail, title: "ponsik123@gmail.com", type: "link" },
     { icon: Globe, title: "ponsik.pro", type: "link" },
